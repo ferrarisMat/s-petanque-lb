@@ -5,16 +5,19 @@ A modern React application built with TypeScript, featuring React Router for nav
 ## Quick Start
 
 ### 1. Use the correct Node.js version, make sure you have nvm installed
+
 ```bash
 nvm use
 ```
 
 ### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
 ### 3. Start development server
+
 ```bash
 npm run dev
 ```

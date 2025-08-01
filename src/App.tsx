@@ -24,24 +24,24 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppContainer = styled.div`
-  min-height: 100vh;
+	min-height: 100vh;
 `;
 
 function App() {
-  return (
-    <Provider store={store}>
-      <Router>
-        <GlobalStyle />
-        <AppContainer>
-          <Navigation />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </AppContainer>
-      </Router>
-    </Provider>
-  );
+	return (
+		<Provider store={store}>
+			<Router>
+				<GlobalStyle />
+				<AppContainer>
+					<Navigation />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/about" element={<About />} />
+					</Routes>
+				</AppContainer>
+			</Router>
+		</Provider>
+	);
 }
 
-export default App
+export default App;
