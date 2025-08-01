@@ -1,45 +1,59 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store, type RootState } from './store/store';
 import { Navigation } from './components/Navigation';
+import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
-import { About } from './pages/About';
-import styled, { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #f8fafc;
-  }
-`;
+import { Matches } from './pages/Matches';
+import styled from 'styled-components';
+import { GlobalStyle } from './styles';
+import { initMatches, initTeams } from './store/slices/appSlice';
+import { useEffect } from 'react';
+import type React from 'react';
+import { useAppDispatch, useAppSelector } from './store/hooks';
 
 const AppContainer = styled.div`
 	min-height: 100vh;
+	overflow-x: hidden;
+	padding: 0 24px;
+	padding-top: 120px;
 `;
+
+function AppInitializer({ children }: { children: React.ReactNode }) {
+	const dispatch = useAppDispatch();
+	const { teams, matches } = useAppSelector((state: RootState) => state.app);
+	useEffect(() => {
+		console.log('AppInitializer useEffect - dispatching initTeams');
+		dispatch(initTeams());
+	}, [dispatch]);
+
+	useEffect(() => {
+		if (teams.length > 0 && matches.length === 0) {
+			console.log('Teams available, dispatching initMatches');
+			dispatch(initMatches());
+		}
+	}, [teams.length, matches.length, dispatch]);
+
+	return <>{children}</>;
+}
 
 function App() {
 	return (
 		<Provider store={store}>
-			<Router>
-				<GlobalStyle />
-				<AppContainer>
+			<AppInitializer>
+				<Router>
+					<GlobalStyle />
 					<Navigation />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/about" element={<About />} />
-					</Routes>
-				</AppContainer>
-			</Router>
+					<AppContainer>
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/matches" element={<Matches />} />
+							<Route path="/admin" element={<Matches isAdmin />} />
+						</Routes>
+					</AppContainer>
+					<Footer />
+				</Router>
+			</AppInitializer>
 		</Provider>
 	);
 }
