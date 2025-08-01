@@ -26,7 +26,7 @@ const LeaderboardContent = styled.div<{ $rank: number; $isPlayer: boolean }>`
 	}};
 
 	@media screen and (max-width: 480px) {
-		grid-template-columns: 48px 1fr ${({ $isPlayer }) => (!$isPlayer ? '40px 40px 40px 40px' : '40px')};
+		grid-template-columns: 32px 1fr ${({ $isPlayer }) => (!$isPlayer ? '32px 32px 32px 32px' : '32px')};
 		gap: 8px;
 		padding: 8px;
 	}
@@ -115,6 +115,10 @@ const LeaderboardRowRank = styled.div<{ $rank: number }>`
 				return 'background-color: var(--color-white); border: 1px solid var(--color-black);';
 		}
 	}}
+	@media screen and (max-width: 480px) {
+		width: 32px;
+		height: 32px;
+	}
 `;
 
 const LeaderboardLegend = styled.small`
@@ -141,7 +145,7 @@ const LeaderboardLegendRow = styled.div<{ $isPlayer: boolean }>`
 	padding-bottom: 6px;
 	align-items: center;
 	@media screen and (max-width: 480px) {
-		grid-template-columns: 48px 1fr ${({ $isPlayer }) => (!$isPlayer ? '40px 40px 40px 40px' : '40px')};
+		grid-template-columns: 32px 1fr ${({ $isPlayer }) => (!$isPlayer ? '32px 32px 32px 32px' : '32px')};
 		gap: 8px;
 		padding: 0 11px;
 		padding-bottom: 6px;
