@@ -482,6 +482,9 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 			`}
 		@media screen and (max-width: 480px) {
 			flex-direction: column;
+			${({$invert:n})=>n&&`
+				align-items: flex-end;
+				`}
 		}
 		&:last-of-type {
 			border-bottom: none;
@@ -519,14 +522,11 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 		display: flex;
 		gap: 2px;
 		align-items: center;
-		@media screen and (max-width: 480px) {
-			margin: 0;
-		}
 	}
 
 	.player-control-button {
-		width: 10px;
-		height: 10px;
+		width: 12px;
+		height: 12px;
 		background-color: var(--color-black);
 		border: none;
 		border-radius: 50%;
@@ -535,7 +535,14 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		font-size: 8px;
+		font-size: 10px;
+		line-height: 12px;
+		@media screen and (max-width: 480px) {
+			width: 16px;
+			height: 16px;
+			font-size: 10px;
+			line-height: 16px;
+		}
 		&:hover {
 			opacity: 0.8;
 		}
