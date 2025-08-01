@@ -1,32 +1,85 @@
 import styled from 'styled-components';
+import logoSvgUrl from '../assets/svg/logo.svg';
 import { Link, useLocation } from 'react-router-dom';
+import { FONT_STYLES } from '../styles';
 
 const Nav = styled.nav`
-	background-color: #1e293b;
-	padding: 1rem 0;
-	margin-bottom: 2rem;
+	background-color: var(--color-white);
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 40px;
+	@media screen and (max-width: 1200px) {
+		padding-top: 24px;
+	}
+	@media screen and (max-width: 900px) {
+		padding-top: 16px;
+	}
 `;
 
 const NavContainer = styled.div`
-	max-width: 800px;
-	margin: 0 auto;
+	width: 100%;
 	display: flex;
 	justify-content: center;
-	gap: 2rem;
-	padding: 0 2rem;
+	align-items: center;
+	gap: 64px;
+	@media screen and (max-width: 1200px) {
+		gap: 48px;
+	}
+	@media screen and (max-width: 900px) {
+		gap: 32px;
+	}
+	@media screen and (max-width: 480px) {
+		gap: 16px;
+	}
 `;
 
 const NavLink = styled(Link)<{ $isActive: boolean }>`
-	color: ${(props) => (props.$isActive ? '#60a5fa' : '#e2e8f0')};
+	${FONT_STYLES.medium}
+	font-size: 16px;
+	color: var(--color-black);
 	text-decoration: none;
-	font-weight: 500;
-	padding: 0.5rem 1rem;
-	border-radius: 4px;
-	transition: all 0.2s;
-
+	position: relative;
+	&::before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 1px;
+		background-color: var(--color-black);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transform: scaleX(0);
+		transition: transform 0.3s ease-in-out;
+		transform-origin: left;
+	}
 	&:hover {
-		color: #60a5fa;
-		background-color: rgba(255, 255, 255, 0.1);
+		opacity: 0.8;
+	}
+	&:hover::before {
+		transform: scaleX(1);
+	}
+	${({ $isActive }) =>
+		$isActive &&
+		`
+		&::before {
+			transform: scaleX(1);
+		}
+	`}
+`;
+
+const Logo = styled.img`
+	width: 120px;
+	@media screen and (max-width: 1200px) {
+		width: 100px;
+	}
+	@media screen and (max-width: 900px) {
+		width: 80px;
 	}
 `;
 
@@ -37,10 +90,11 @@ export function Navigation() {
 		<Nav>
 			<NavContainer>
 				<NavLink to="/" $isActive={location.pathname === '/'}>
-					Home
+					Leaderboard
 				</NavLink>
-				<NavLink to="/about" $isActive={location.pathname === '/about'}>
-					About
+				<Logo src={logoSvgUrl} alt="Signifly pétanque league" />
+				<NavLink to="/matches" $isActive={location.pathname === '/matches'}>
+					Matches
 				</NavLink>
 			</NavContainer>
 		</Nav>
