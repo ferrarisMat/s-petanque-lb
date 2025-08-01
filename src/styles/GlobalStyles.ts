@@ -71,5 +71,11 @@ export const GlobalStyle = createGlobalStyle`
 		display: flex;
 		flex-direction: column;
 		gap: 8px;
+    @media screen and (max-width: 1200px) {
+      grid-column: 2 / 12;
+    }
+    @media screen and (max-width: 900px) {
+      grid-column: 1 / 13; 
+    }
 	}
 `;
