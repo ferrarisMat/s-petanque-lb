@@ -265,7 +265,7 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 	${n=>{switch(n.$rank){case 1:return"background-color: var(--color-gold-light); border: 3px solid var(--color-gold);";case 2:return"background-color: var(--color-silver-light); border: 3px solid var(--color-silver);";case 3:return"background-color: var(--color-bronze-light); border: 3px solid var(--color-bronze);";default:return"background-color: var(--color-white); border: 1px solid var(--color-black);"}}};
 
 	@media screen and (max-width: 480px) {
-		grid-template-columns: 48px 1fr ${({$isPlayer:n})=>n?"40px":"40px 40px 40px 40px"};
+		grid-template-columns: 32px 1fr ${({$isPlayer:n})=>n?"32px":"32px 32px 32px 32px"};
 		gap: 8px;
 		padding: 8px;
 	}
@@ -365,7 +365,7 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 	padding-bottom: 6px;
 	align-items: center;
 	@media screen and (max-width: 480px) {
-		grid-template-columns: 48px 1fr ${({$isPlayer:n})=>n?"40px":"40px 40px 40px 40px"};
+		grid-template-columns: 32px 1fr ${({$isPlayer:n})=>n?"32px":"32px 32px 32px 32px"};
 		gap: 8px;
 		padding: 0 11px;
 		padding-bottom: 6px;
