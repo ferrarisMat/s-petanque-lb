@@ -52,7 +52,7 @@ export function Footer() {
 
 	return (
 		<FooterContainer>
-			<FooterLink to="/admin" $isActive={location.pathname === '/admin'}>
+			<FooterLink to="/s-petanque-lb/admin" $isActive={location.pathname === '/s-petanque-lb/admin'}>
 				Admin
 			</FooterLink>
 		</FooterContainer>

@@ -89,11 +89,11 @@ export function Navigation() {
 	return (
 		<Nav>
 			<NavContainer>
-				<NavLink to="/" $isActive={location.pathname === '/'}>
+				<NavLink to="/s-petanque-lb/" $isActive={location.pathname === '/s-petanque-lb/'}>
 					Leaderboard
 				</NavLink>
 				<Logo src={logoSvgUrl} alt="Signifly pétanque league" />
-				<NavLink to="/matches" $isActive={location.pathname === '/matches'}>
+				<NavLink to="/s-petanque-lb/matches" $isActive={location.pathname === '/s-petanque-lb/matches'}>
 					Matches
 				</NavLink>
 			</NavContainer>
