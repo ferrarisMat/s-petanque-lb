@@ -96,63 +96,65 @@ export function Matches(props: { isAdmin?: boolean }) {
 	return (
 		<MathesContainer>
 			<div className="grid-container">
-				<div className="center-wrapper">
-					<p className="table-title">Table</p>
-					<div className="match-row">
-						{otherMatches
-							.map((match) => {
-								const team1 = teams.find((team) => team.id === match.team1);
-								const team2 = teams.find((team) => team.id === match.team2);
+				{otherMatches.length > 0 && (
+					<div className="center-wrapper">
+						<p className="table-title">Table</p>
+						<div className="match-row">
+							{otherMatches
+								.map((match) => {
+									const team1 = teams.find((team) => team.id === match.team1);
+									const team2 = teams.find((team) => team.id === match.team2);
 
-								return [
-									// Team 1 Card
-									<TeamMatchCard
-										key={`${match.id}-team1`}
-										teamName={team1?.name ?? ''}
-										score1={match.playerScores[team1?.players[0]?.id ?? ''] ?? 0}
-										score2={match.playerScores[team1?.players[1]?.id ?? ''] ?? 0}
-										player1={team1?.players[0]?.name ?? ''}
-										player2={team1?.players[1]?.name ?? ''}
-										player1Id={team1?.players[0]?.id ?? ''}
-										player2Id={team1?.players[1]?.id ?? ''}
-										teamScore={match.score1}
-										isAdmin={isAdmin}
-										isLive={match.isLive}
-										isFinished={match.isFinished}
-										onAddScore={(playerId) => {
-											handleAddScore(match.id, match.team1, playerId);
-										}}
-										onSubtractScore={(playerId) => {
-											handleSubtractScore(match.id, match.team1, playerId);
-										}}
-									/>,
-									// Team 2 Card
-									<TeamMatchCard
-										key={`${match.id}-team2`}
-										teamName={team2?.name ?? ''}
-										score1={match.playerScores[team2?.players[0]?.id ?? ''] ?? 0}
-										score2={match.playerScores[team2?.players[1]?.id ?? ''] ?? 0}
-										player1={team2?.players[0]?.name ?? ''}
-										player2={team2?.players[1]?.name ?? ''}
-										player1Id={team2?.players[0]?.id ?? ''}
-										player2Id={team2?.players[1]?.id ?? ''}
-										teamScore={match.score2}
-										isAdmin={isAdmin}
-										isLive={match.isLive}
-										isFinished={match.isFinished}
-										invert
-										onAddScore={(playerId) => {
-											handleAddScore(match.id, match.team2, playerId);
-										}}
-										onSubtractScore={(playerId) => {
-											handleSubtractScore(match.id, match.team2, playerId);
-										}}
-									/>,
-								];
-							})
-							.flat()}
+									return [
+										// Team 1 Card
+										<TeamMatchCard
+											key={`${match.id}-team1`}
+											teamName={team1?.name ?? ''}
+											score1={match.playerScores[team1?.players[0]?.id ?? ''] ?? 0}
+											score2={match.playerScores[team1?.players[1]?.id ?? ''] ?? 0}
+											player1={team1?.players[0]?.name ?? ''}
+											player2={team1?.players[1]?.name ?? ''}
+											player1Id={team1?.players[0]?.id ?? ''}
+											player2Id={team1?.players[1]?.id ?? ''}
+											teamScore={match.score1}
+											isAdmin={isAdmin}
+											isLive={match.isLive}
+											isFinished={match.isFinished}
+											onAddScore={(playerId) => {
+												handleAddScore(match.id, match.team1, playerId);
+											}}
+											onSubtractScore={(playerId) => {
+												handleSubtractScore(match.id, match.team1, playerId);
+											}}
+										/>,
+										// Team 2 Card
+										<TeamMatchCard
+											key={`${match.id}-team2`}
+											teamName={team2?.name ?? ''}
+											score1={match.playerScores[team2?.players[0]?.id ?? ''] ?? 0}
+											score2={match.playerScores[team2?.players[1]?.id ?? ''] ?? 0}
+											player1={team2?.players[0]?.name ?? ''}
+											player2={team2?.players[1]?.name ?? ''}
+											player1Id={team2?.players[0]?.id ?? ''}
+											player2Id={team2?.players[1]?.id ?? ''}
+											teamScore={match.score2}
+											isAdmin={isAdmin}
+											isLive={match.isLive}
+											isFinished={match.isFinished}
+											invert
+											onAddScore={(playerId) => {
+												handleAddScore(match.id, match.team2, playerId);
+											}}
+											onSubtractScore={(playerId) => {
+												handleSubtractScore(match.id, match.team2, playerId);
+											}}
+										/>,
+									];
+								})
+								.flat()}
+						</div>
 					</div>
-				</div>
+				)}
 				{finishedMatches.length > 0 && (
 					<div className="center-wrapper">
 						<p className="table-title">Past games</p>
