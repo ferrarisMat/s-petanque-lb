@@ -25,6 +25,12 @@ const LeaderboardContent = styled.div<{ $rank: number; $isPlayer: boolean }>`
 		}
 	}};
 
+	@media screen and (max-width: 480px) {
+		grid-template-columns: 48px 1fr ${({ $isPlayer }) => (!$isPlayer ? '40px 40px 40px 40px' : '40px')};
+		gap: 8px;
+		padding: 8px;
+	}
+
 	.rank-cell {
 		display: flex;
 		justify-content: center;
@@ -46,9 +52,15 @@ const LeaderboardContent = styled.div<{ $rank: number; $isPlayer: boolean }>`
 	}
 	.large-text {
 		font-size: 18px;
+		@media screen and (max-width: 480px) {
+			font-size: 16px;
+		}
 	}
 	.small-text {
 		font-size: 12px;
+		@media screen and (max-width: 480px) {
+			font-size: 10px;
+		}
 	}
 	.stat-text,
 	.score-text {
@@ -56,6 +68,9 @@ const LeaderboardContent = styled.div<{ $rank: number; $isPlayer: boolean }>`
 	}
 	.score-text {
 		font-size: 24px;
+		@media screen and (max-width: 480px) {
+			font-size: 20px;
+		}
 	}
 
 	.live-text {
@@ -125,6 +140,12 @@ const LeaderboardLegendRow = styled.div<{ $isPlayer: boolean }>`
 	padding: 0 21px;
 	padding-bottom: 6px;
 	align-items: center;
+	@media screen and (max-width: 480px) {
+		grid-template-columns: 48px 1fr ${({ $isPlayer }) => (!$isPlayer ? '40px 40px 40px 40px' : '40px')};
+		gap: 8px;
+		padding: 0 11px;
+		padding-bottom: 6px;
+	}
 
 	.legend-rank,
 	.legend-team {
