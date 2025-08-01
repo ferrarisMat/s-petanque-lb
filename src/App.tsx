@@ -46,9 +46,9 @@ function App() {
 					<Navigation />
 					<AppContainer>
 						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/matches" element={<Matches />} />
-							<Route path="/admin" element={<Matches isAdmin />} />
+							<Route path="s-petanque-lb/" element={<Home />} />
+							<Route path="s-petanque-lb/matches" element={<Matches />} />
+							<Route path="s-petanque-lb/admin" element={<Matches isAdmin />} />
 						</Routes>
 					</AppContainer>
 					<Footer />
