@@ -341,6 +341,10 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 	align-items: center;
 	justify-content: center;
 	${n=>{switch(n.$rank){case 1:return"background-color: var(--color-gold);";case 2:return"background-color: var(--color-silver);";case 3:return"background-color: var(--color-bronze);";default:return"background-color: var(--color-white); border: 1px solid var(--color-black);"}}}
+	@media screen and (max-width: 480px) {
+		width: 32px;
+		height: 32px;
+	}
 `,un=ke.small`
 	${Yt.regular}
 	font-size: 12px;
