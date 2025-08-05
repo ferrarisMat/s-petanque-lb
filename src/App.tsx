@@ -17,6 +17,7 @@ const AppContainer = styled.div`
 	overflow-x: hidden;
 	padding: 0 24px;
 	padding-top: 120px;
+	padding-bottom: 80px;
 `;
 
 function AppInitializer({ children }: { children: React.ReactNode }) {

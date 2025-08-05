@@ -11,6 +11,7 @@ const FooterContainer = styled.footer`
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
+	background-color: var(--color-white);
 `;
 
 const FooterLink = styled(Link)<{ $isActive: boolean }>`
@@ -19,6 +20,7 @@ const FooterLink = styled(Link)<{ $isActive: boolean }>`
 	color: var(--color-black);
 	text-decoration: none;
 	position: relative;
+
 	&::before {
 		content: '';
 		display: block;
