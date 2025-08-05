@@ -224,12 +224,14 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
+	background-color: var(--color-white);
 `,ax=ke(vr)`
 	${Yt.regular}
 	font-size: 16px;
 	color: var(--color-black);
 	text-decoration: none;
 	position: relative;
+
 	&::before {
 		content: '';
 		display: block;
@@ -583,4 +585,5 @@ Please change the parent <Route path="${N}"> to <Route path="${N==="/"?"*":`${N}
 	overflow-x: hidden;
 	padding: 0 24px;
 	padding-top: 120px;
+	padding-bottom: 80px;
 `;function gx({children:n}){const i=Ap(),{teams:f,matches:c}=Lo(o=>o.app);return D.useEffect(()=>{console.log("AppInitializer useEffect - dispatching initTeams"),i(jb())},[i]),D.useEffect(()=>{f.length>0&&c.length===0&&(console.log("Teams available, dispatching initMatches"),i(Hb()))},[f.length,c.length,i]),X.jsx(X.Fragment,{children:n})}function bx(){return X.jsx(Z1,{store:Xb,children:X.jsx(gx,{children:X.jsxs(g1,{children:[X.jsx(WS,{}),X.jsx(tx,{}),X.jsx(vx,{children:X.jsxs(Jg,{children:[X.jsx(Ji,{path:"/s-petanque-lb/",element:X.jsx(mx,{})}),X.jsx(Ji,{path:"/s-petanque-lb/matches",element:X.jsx(Ey,{})}),X.jsx(Ji,{path:"/s-petanque-lb/admin",element:X.jsx(Ey,{isAdmin:!0})})]})}),X.jsx(nx,{})]})})})}ng.createRoot(document.getElementById("root")).render(X.jsx(D.StrictMode,{children:X.jsx(bx,{})}));
