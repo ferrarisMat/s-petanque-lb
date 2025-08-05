@@ -77,6 +77,7 @@ The app provides an intuitive interface for players and organizers to focus on t
 ## Future updates
 
 - Admin login
+- Allow admins to add players
 - Admin design update
 - Back-end management and data fetching
 - "Now playing" badge on the leaderboards to display which teams and players are currently involved in a match. Admin would be the only ones to be able to "start a match"
